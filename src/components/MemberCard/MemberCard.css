@@ -1,0 +1,36 @@
+.member-item {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 30px 5px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.member-item:hover {
+    transform: translateY(-10px);
+    transition: 0.8s;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 10px;
+}
+
+.member-logo {
+    padding-bottom: 20px;
+}
+
+.member-logo img {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.member-content {
+    padding: 10px 20px;
+    text-align: justify;
+}
+
+.member-edit {
+    top: 0;
+    right: 0;
+    z-index: 9;
+}
