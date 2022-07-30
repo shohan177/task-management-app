@@ -1,28 +1,22 @@
-import Login from "./Pages/Auth/Login";
+import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import {
-  Dashbord,
-  Hader,
-  Footer,
-  TaskIndex,
-  TaskList,
-  TaskCreate,
-  TaskUpdate,
-  MemberIndex,
-  MemberList,
-  PriveRoutstHandaler,
-  MemberCreate,
-  MemberUpdate
-} from './constant/pageContainer'
+  Dashbord, Footer, Hader, MemberCreate, MemberIndex,
+  MemberList, MemberUpdate, PriveRoutstHandaler, TaskCreate, TaskIndex,
+  TaskList, TaskUpdate
+} from './constant/pageContainer';
 import urlString from "./constant/urlString";
-
+import Login from "./Pages/Auth/Login";
 
 
 
 function App() {
+
+  let { loginStaus } = useSelector(state => state.authData.userInfo)
+
   return (
     <>
-      <Hader />
+      {loginStaus && <Hader />}
       <Routes>
         <Route path={urlString.LOGIN} element={<Login />} />
 
@@ -44,7 +38,7 @@ function App() {
         </Route>
         {/* privet route end */}
       </Routes>
-      <Footer />
+      {loginStaus && <Footer />}
     </>
   );
 }

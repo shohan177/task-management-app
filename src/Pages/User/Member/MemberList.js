@@ -22,7 +22,6 @@ function MemberList() {
 
     //delete member
     const handelDelete = (id) => {
-
         axios.delete('http://localhost:5050/member/' + id).then(res => {
             // console.log(res)
             getAllMemeber()

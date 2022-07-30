@@ -1,10 +1,13 @@
 import React from 'react'
-import { Col, Container, Row, DropdownButton, Dropdown } from 'react-bootstrap'
-import './Hader.css'
+import { Col, Container, Dropdown, DropdownButton, Row } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 import urlString from '../../constant/urlString'
+import './Hader.css'
 
 const Hader = () => {
+    let { userInfo } = useSelector(state => state.authData)
+    console.log("form hader", userInfo)
     return (
         <>
             <header className='header shadow'>
@@ -28,7 +31,7 @@ const Hader = () => {
                         <Col md={2} style={{ textAlign: 'end' }}>
                             <DropdownButton
                                 variant="outline-secondary"
-                                title="shohan"
+                                title={userInfo.userName}
                                 id="input-group-dropdown-1"
 
                             >

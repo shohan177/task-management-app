@@ -1,4 +1,18 @@
 {
+  "user": [
+    {
+      "id": 1,
+      "email": "user1@admin.com",
+      "name": "shohan",
+      "password": 12345
+    },
+    {
+      "id": 2,
+      "email": "user2@admin.com",
+      "name": "jahan",
+      "password": 12312
+    }
+  ],
   "member": [
     {
       "name": "shohan",

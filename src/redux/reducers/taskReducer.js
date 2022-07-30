@@ -17,7 +17,7 @@ const initialState = {
 }
 
 export const taskReducer = (state = initialState, { type, payload }) => {
-    console.log("paylaod", payload)
+    // console.log("paylaod", payload)
     switch (type) {
         case taskAction.SET_TASK:
             return { ...state, tasks: payload }
