@@ -14,12 +14,14 @@ function MemberCreate() {
     const dispatch = useDispatch()
     let navigate = useNavigate();
 
+    console.log(data)
     //create member
     const handelSubmit = (e) => {
         e.preventDefault()
-        if (data.email !== "" && data.name !== "") {
+        if (data?.email !== "" && data?.name !== "" && data) {
+            dispatch(inputMember({ ...data, error: "" }))
             axios.post('http://localhost:5050/member', data).then(res => {
-                dispatch(inputMember({}))
+                dispatch(inputMember({ email: "", name: "" }))
                 navigate(urlString.MEMEBER)
             }
             )
@@ -38,12 +40,12 @@ function MemberCreate() {
                     <Form onSubmit={handelSubmit}>
                         <Form.Group>
                             <Form.Label>Email </Form.Label>
-                            <Form.Control name='email' value={data.email} onChange={(e) => dispatch(inputMember({ ...data, email: e.target.value }))} />
+                            <Form.Control name='email' onChange={(e) => dispatch(inputMember({ ...data, email: e.target.value }))} />
 
                         </Form.Group>
                         <Form.Group className='mt-3'>
                             <Form.Label>Name</Form.Label>
-                            <Form.Control name='user_name' type='text' value={data.name} onChange={(e) => dispatch(inputMember({ ...data, name: e.target.value }))} />
+                            <Form.Control name='user_name' type='text' onChange={(e) => dispatch(inputMember({ ...data, name: e.target.value }))} />
                         </Form.Group>
 
                         <p className='text-danger'>{data?.error}</p>

@@ -13,7 +13,7 @@ function Dashbord() {
 
                     <Col md={4}>
                         <NavLink to={urlString.TASK}>
-                            <div class="itemBox bg-info shadow">
+                            <div class="itemBox  bg-warning shadow">
                                 <div class="pt-2">
                                     <h3>Task</h3>
                                 </div>
@@ -22,7 +22,7 @@ function Dashbord() {
                     </Col>
                     <Col md={4}>
                         <NavLink to={urlString.MEMEBER}>
-                            <div class="itemBox bg-warning shadow">
+                            <div class="itemBox bg-info shadow">
                                 <div class="pt-2">
                                     <h3>Members</h3>
                                 </div>

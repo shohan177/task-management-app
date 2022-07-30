@@ -53,6 +53,12 @@ function Task() {
         })
     }
 
+    const handelTaskDetails = (data) => {
+        navigate(urlString.TASKDETAILS, {
+            state: data
+        })
+    }
+
     //initiate laod
     useEffect(() => {
         getAlltask()
@@ -67,7 +73,7 @@ function Task() {
             </div>
             <Row>
                 {tasks && tasks.map((data, index) =>
-                    <TaskCard data={data} handelDelete={handelDelete} handelEdit={handelTaskEdit} key={index} />
+                    <TaskCard data={data} handelDelete={handelDelete} handelEdit={handelTaskEdit} handelTaskDetails={handelTaskDetails} key={index} />
                 )}
             </Row>
 

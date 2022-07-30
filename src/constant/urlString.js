@@ -6,6 +6,7 @@ export default {
     TASK: '/task',
     TASKCREATE: '/task/create',
     TASKUPDATE: '/task/update',
+    TASKDETAILS: '/task/details',
 
     MEMEBER: '/member',
     MEMEBERCREATE: '/member/create',

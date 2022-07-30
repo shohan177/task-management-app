@@ -27,16 +27,21 @@ function TaskUpdate() {
     //update submit
     const handelSubmitUpdate = (e) => {
         e.preventDefault()
-        axios.put('http://localhost:5050/task/' + data.id, {
-            title: data.title,
-            discription: data.discription,
-            assign: data.assign
-        }).then(res => {
-
-            navigate(urlString.TASK)
-            swal("Updated", "Task updated done", "success");
+        if (data.title !== "" && data.discription !== "" && data.assign !== "") {
+            dispatch(inputTask({ ...data, error: "" }))
+            axios.put('http://localhost:5050/task/' + data.id, {
+                title: data.title,
+                discription: data.discription,
+                assign: data.assign
+            }).then(res => {
+                dispatch(inputTask({ title: "", discription: "", assign: "" }))
+                navigate(urlString.TASK)
+                swal("Updated", "Task updated done", "success");
+            }
+            )
+        } else {
+            dispatch(inputTask({ ...data, error: "all fields are required !" }))
         }
-        )
 
     }
 
@@ -71,6 +76,7 @@ function TaskUpdate() {
 
 
                     <Form.Group>
+                        <p className='text-danger'>{data?.error}</p>
                         <br></br>
                         <NavLink to={urlString.TASK}><Button variant='primary' className='btn-block'>Back</Button></NavLink>
 

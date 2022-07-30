@@ -25,12 +25,17 @@ function MemberUpdate() {
     //handel update member
     const handelUpdate = (e) => {
         e.preventDefault()
-        axios.put('http://localhost:5050/member/' + data.id, data).then(res => {
-
-            navigate(urlString.MEMEBER)
-            swal("Updated", "Member updated done", "success");
+        if (data.email !== "" && data.name !== "") {
+            dispatch(inputMember({ ...data, error: "" }))
+            axios.put('http://localhost:5050/member/' + data.id, data).then(res => {
+                dispatch(inputMember({ email: "", name: "" }))
+                navigate(urlString.MEMEBER)
+                swal("Updated", "Member updated done", "success");
+            }
+            )
+        } else {
+            dispatch(inputMember({ ...data, error: "all fields are required !" }))
         }
-        )
     }
 
 
@@ -50,6 +55,7 @@ function MemberUpdate() {
                         <Form.Control type='text' value={data.name} onChange={(e) => dispatch(inputMember({ ...data, name: e.target.value }))} />
                     </Form.Group>
                     <Form.Group>
+                        <p className='text-danger'>{data?.error}</p>
                         <br></br>
                         <NavLink to={urlString.MEMEBER}><Button variant='primary' className='btn-block'>Back</Button></NavLink>
 

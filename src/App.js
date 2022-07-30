@@ -8,6 +8,7 @@ import {
 import urlString from "./constant/urlString";
 import Login from "./Pages/Auth/Login";
 import ErrorPage from './Pages/ErrorPage';
+import TaskDetails from './Pages/User/Task/TaskDetails';
 
 
 
@@ -29,6 +30,7 @@ function App() {
             <Route path={urlString.TASK} element={<TaskList />} />
             <Route path={urlString.TASKCREATE} element={<TaskCreate />} />
             <Route path={urlString.TASKUPDATE} element={<TaskUpdate />} />
+            <Route path={urlString.TASKDETAILS} element={<TaskDetails />} />
           </Route>
 
           <Route path={urlString.MEMEBER} element={<MemberIndex />}>

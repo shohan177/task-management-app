@@ -23,7 +23,7 @@ function MemberCard({ data, handelDelete, handelEdit }) {
                         <ButtonGroup>
 
                             <Button variant="outline-info" size='sm' onClick={() => handelEdit(data)}>Update</Button>
-                            <Button variant="outline-warning" size='sm' onClick={() => handelDelete(data?.id)}>Delete</Button>
+                            <Button variant="outline-danger" size='sm' onClick={() => handelDelete(data?.id)}>Delete</Button>
                         </ButtonGroup>
                     </div>
 
