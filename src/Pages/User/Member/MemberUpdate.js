@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import urlString from '../../../constant/urlString';
 import { inputMember } from '../../../redux/action/memberAction';
 
@@ -27,6 +28,7 @@ function MemberUpdate() {
         axios.put('http://localhost:5050/member/' + data.id, data).then(res => {
 
             navigate(urlString.MEMEBER)
+            swal("Updated", "Member updated done", "success");
         }
         )
     }

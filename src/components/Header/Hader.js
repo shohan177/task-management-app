@@ -1,12 +1,23 @@
 import React from 'react'
 import { Col, Container, Dropdown, DropdownButton, Row } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 import urlString from '../../constant/urlString'
+import { logOutUser } from '../../redux/action/authAction'
 import './Hader.css'
 
 const Hader = () => {
     let { userInfo } = useSelector(state => state.authData)
+    const dispatch = useDispatch()
+
+    //logout 
+    const handelLogout = () => {
+        dispatch(logOutUser({
+            userName: "",
+            loginStaus: false
+        }))
+    }
+
     console.log("form hader", userInfo)
     return (
         <>
@@ -33,9 +44,8 @@ const Hader = () => {
                                 variant="outline-secondary"
                                 title={userInfo.userName}
                                 id="input-group-dropdown-1"
-
                             >
-                                <Dropdown.Item href="#">Log Out</Dropdown.Item>
+                                <Dropdown.Item onClick={handelLogout}>Log Out</Dropdown.Item>
                             </DropdownButton>
                         </Col>
                     </Row>

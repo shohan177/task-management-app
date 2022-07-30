@@ -20,33 +20,43 @@
       "id": 1
     },
     {
-      "name": "abdull",
-      "email": "abdull@gmail.com",
+      "name": "abdulla",
+      "email": "abdulla@gmail.com",
       "id": 2
     },
     {
-      "name": "lalu",
-      "email": "lalu@chalu.com",
+      "name": "arafat",
+      "email": "arafat@gmail.com",
       "id": 3
+    },
+    {
+      "name": "alamin",
+      "email": "alamin@gmail.com",
+      "id": 4
+    },
+    {
+      "name": "imadad",
+      "email": "imdad@gmail.com",
+      "id": 5
     }
   ],
   "task": [
     {
-      "title": "bari jaw vai ",
-      "discription": "bajar kroa annen ",
-      "assign": "abdull",
+      "title": "Auth menagement ",
+      "discription": "do with in next week",
+      "assign": "abdulla",
       "id": 1
     },
     {
-      "title": "ajka guman  nai tumar",
-      "discription": "ajak asara din guman apni",
+      "title": "Login systme",
+      "discription": "do with in next week",
       "assign": "shohan",
       "id": 2
     },
     {
-      "title": "ajka ranna koro ",
-      "discription": "bajar kroa annen fafaf",
-      "assign": "shohan",
+      "title": "Member crud",
+      "discription": "do with in next week",
+      "assign": "alamin",
       "id": 3
     }
   ]

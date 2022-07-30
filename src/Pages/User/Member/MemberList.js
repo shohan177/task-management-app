@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Button, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import MemberCard from '../../../components/MemberCard/MemberCard';
 import urlString from '../../../constant/urlString';
 import { setMembers } from '../../../redux/action/memberAction';
@@ -22,10 +23,23 @@ function MemberList() {
 
     //delete member
     const handelDelete = (id) => {
-        axios.delete('http://localhost:5050/member/' + id).then(res => {
-            // console.log(res)
-            getAllMemeber()
+
+        swal({
+            title: "Are you sure?",
+            text: "you want to delete this",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
         })
+            .then((willDelete) => {
+                if (willDelete) {
+                    axios.delete('http://localhost:5050/member/' + id).then(res => {
+                        // console.log(res)
+                        getAllMemeber()
+                    })
+                }
+            });
+
     }
 
     //redirect edit

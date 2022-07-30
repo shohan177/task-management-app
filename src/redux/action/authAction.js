@@ -14,3 +14,12 @@ export const loginIfo = (value) => {
         payload: value
     }
 }
+
+
+export const logOutUser = (value) => {
+    return {
+        type: authAction.AUTH_OUT,
+        payload: value
+    }
+}
+

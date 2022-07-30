@@ -7,6 +7,7 @@ import {
 } from './constant/pageContainer';
 import urlString from "./constant/urlString";
 import Login from "./Pages/Auth/Login";
+import ErrorPage from './Pages/ErrorPage';
 
 
 
@@ -37,6 +38,7 @@ function App() {
           </Route>
         </Route>
         {/* privet route end */}
+        <Route path="/*" element={<ErrorPage />} />
       </Routes>
       {loginStaus && <Footer />}
     </>

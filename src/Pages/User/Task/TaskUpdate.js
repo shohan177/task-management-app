@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import urlString from '../../../constant/urlString';
 import { inputTask } from '../../../redux/action/taskAction';
 import './Task.css';
@@ -33,6 +34,7 @@ function TaskUpdate() {
         }).then(res => {
 
             navigate(urlString.TASK)
+            swal("Updated", "Task updated done", "success");
         }
         )
 
