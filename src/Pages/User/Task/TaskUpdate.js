@@ -61,7 +61,7 @@ function TaskUpdate() {
                     <Form.Group className='mt-3'>
                         <Form.Label>Selct Member</Form.Label>
                         <Form.Select aria-label="Default select example" onChange={(e) => dispatch(inputTask({ ...data, assign: e.target.value }))}>
-                            {data.members.map((item, index) =>
+                            {data.members?.map((item, index) =>
                                 < option value={item.name} selected={item.name === data?.assign ? true : false}>{item.name}</option>
                             )
                             }
