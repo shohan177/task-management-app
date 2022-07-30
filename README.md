@@ -11,8 +11,10 @@ In the project directory, you can run:
 
 Login Credentials
 
-email: ### `user1@admin.com`
-password: ### `12345`
+email: 
+### `user1@admin.com`
+password: 
+### `12345`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
