@@ -5,6 +5,7 @@ const initialState = {
         title: "",
         discription: "",
         assign: "",
+        error: "",
         members: []
     },
     tasks: [

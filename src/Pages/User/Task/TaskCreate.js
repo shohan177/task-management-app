@@ -25,16 +25,21 @@ function TaskCreate() {
     //submit task 
     const handelSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5050/task', {
-            title: data.title,
-            discription: data.discription,
-            assign: data.assign
-        }).then(res => {
+        if (data.title !== "" && data.discription !== "" && data.assign !== "") {
 
-            console.log(res)
-            navigate(urlString.TASK)
+            axios.post('http://localhost:5050/task', {
+                title: data.title,
+                discription: data.discription,
+                assign: data.assign
+            }).then(res => {
+
+                dispatch(inputTask({}))
+                navigate(urlString.TASK)
+            }
+            )
+        } else {
+            dispatch(inputTask({ ...data, error: "all fields are required !" }))
         }
-        )
     }
 
 
@@ -65,7 +70,7 @@ function TaskCreate() {
                         <Form.Control as="textarea" rows={3} value={data.discription} onChange={(e) => dispatch(inputTask({ ...data, discription: e.target.value }))} />
                     </Form.Group>
 
-
+                    <p className='text-danger'>{data?.error}</p>
                     <Form.Group>
                         <br></br>
                         <NavLink to={urlString.TASK}><Button variant='primary' className='btn-block'>Back</Button></NavLink>

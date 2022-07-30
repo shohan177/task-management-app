@@ -17,11 +17,15 @@ function MemberCreate() {
     //create member
     const handelSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5050/member', data).then(res => {
-
-            navigate(urlString.MEMEBER)
+        if (data.email !== "" && data.name !== "") {
+            axios.post('http://localhost:5050/member', data).then(res => {
+                dispatch(inputMember({}))
+                navigate(urlString.MEMEBER)
+            }
+            )
+        } else {
+            dispatch(inputMember({ ...data, error: "all fields are required !" }))
         }
-        )
 
     }
 
@@ -33,7 +37,7 @@ function MemberCreate() {
                     <h2>Create Member</h2>
                     <Form onSubmit={handelSubmit}>
                         <Form.Group>
-                            <Form.Label>Email</Form.Label>
+                            <Form.Label>Email </Form.Label>
                             <Form.Control name='email' value={data.email} onChange={(e) => dispatch(inputMember({ ...data, email: e.target.value }))} />
 
                         </Form.Group>
@@ -41,6 +45,8 @@ function MemberCreate() {
                             <Form.Label>Name</Form.Label>
                             <Form.Control name='user_name' type='text' value={data.name} onChange={(e) => dispatch(inputMember({ ...data, name: e.target.value }))} />
                         </Form.Group>
+
+                        <p className='text-danger'>{data?.error}</p>
                         <Form.Group>
                             <br></br>
                             <NavLink to={urlString.MEMEBER}><Button variant='primary' className='btn-block'>Back</Button></NavLink>

@@ -3,13 +3,14 @@ import { memberAction } from "../actionType/member";
 const initialState = {
     inputFields: {
         name: "",
-        email: ""
+        email: "",
+        error: ""
     },
     members: []
 }
 
 export const membersReducer = (state = initialState, { type, payload }) => {
-    //console.log("payload", payload)
+
     switch (type) {
         case memberAction.SET_MEMBER:
             return { ...state, members: payload }
