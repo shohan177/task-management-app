@@ -1,33 +1,68 @@
-import React from 'react'
-import { Form, Row, Col, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+import React, { useEffect } from 'react';
+import { Button, Col, Form, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
 import urlString from '../../../constant/urlString';
-import './Task.css'
+import { inputTask } from '../../../redux/action/taskAction';
+import './Task.css';
+
 
 function TaskCreate() {
+
+    let data = useSelector(state => state.taskData.inputFields)
+    const dispatch = useDispatch()
+    let navigate = useNavigate();
+
+
+    //initiate laod
+    useEffect(() => {
+        axios.get('http://localhost:5050/member').then(res => {
+            dispatch(inputTask({ ...data, members: res.data }))
+        })
+    }, [])
+
+    //submit task 
+    const handelSubmit = (e) => {
+        e.preventDefault()
+        axios.post('http://localhost:5050/task', {
+            title: data.title,
+            discription: data.discription,
+            assign: data.assign
+        }).then(res => {
+
+            console.log(res)
+            navigate(urlString.TASK)
+        }
+        )
+    }
+
+
     return (
         <Row className='d-flex justify-content-center my-5'>
             <Col md={5}>
 
                 <h2>Create Task</h2>
-                <Form>
+                <Form onSubmit={handelSubmit}>
 
                     <Form.Group className='mt-3'>
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control name='user_name' type='text' />
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control name='user_name' type='text' value={data.title} onChange={(e) => dispatch(inputTask({ ...data, title: e.target.value }))} />
                     </Form.Group>
                     <Form.Group className='mt-3'>
                         <Form.Label>Selct Member</Form.Label>
-                        <Form.Select aria-label="Default select example">
+                        <Form.Select aria-label="Default select example" onChange={(e) => dispatch(inputTask({ ...data, assign: e.target.value }))}>
                             <option>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            {data.members.map((data, index) =>
+
+                                <option value={data.name}>{data.name}</option>
+                            )}
+
                         </Form.Select>
                     </Form.Group>
                     <Form.Group className="mb-3 mt-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Discripation</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Control as="textarea" rows={3} value={data.discription} onChange={(e) => dispatch(inputTask({ ...data, discription: e.target.value }))} />
                     </Form.Group>
 
 
@@ -35,7 +70,7 @@ function TaskCreate() {
                         <br></br>
                         <NavLink to={urlString.TASK}><Button variant='primary' className='btn-block'>Back</Button></NavLink>
 
-                        <Button variant='warning' className='btn-block  mx-2'>Submit</Button>
+                        <Button variant='warning' type="submit" className='btn-block  mx-2'>Submit</Button>
                     </Form.Group>
 
                 </Form>

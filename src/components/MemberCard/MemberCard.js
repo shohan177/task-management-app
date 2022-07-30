@@ -1,11 +1,9 @@
 import React from 'react'
-import { Col, Button, ButtonGroup } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
-import urlString from '../../constant/urlString'
+import { Button, ButtonGroup, Col } from 'react-bootstrap'
 import './MemberCard.css'
 
 
-function MemberCard() {
+function MemberCard({ data, handelDelete, handelEdit }) {
     return (
         <>
             <Col md={4}>
@@ -15,17 +13,17 @@ function MemberCard() {
                     </div>
                     <div className="member-content">
                         <tr>
-                            <td>Name:</td>
-                            <td>Sarwar jahan Shohan</td>
+                            <td>Name: </td>
+                            <td>{data?.name}</td>
                         </tr>
                         <tr>
-                            <td>Email:</td>
-                            <td>shohan.seu61@gmail.com</td>
+                            <td>Email: </td>
+                            <td>{data?.email}</td>
                         </tr>
                         <ButtonGroup>
 
-                            <NavLink to={urlString.MEMEBERUPDATE}><Button variant="outline-info" size='sm'>Update</Button></NavLink>
-                            <Button variant="outline-warning" size='sm'>Delete</Button>
+                            <Button variant="outline-info" size='sm' onClick={() => handelEdit(data)}>Update</Button>
+                            <Button variant="outline-warning" size='sm' onClick={() => handelDelete(data?.id)}>Delete</Button>
                         </ButtonGroup>
                     </div>
 

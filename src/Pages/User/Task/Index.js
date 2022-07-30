@@ -1,7 +1,7 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import { Container, Row, Button } from 'react-bootstrap';
-import './Task.css'
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import { Outlet } from 'react-router-dom';
+import './Task.css';
 function index() {
     return (
         <Container className='bg-light task p-3'>
