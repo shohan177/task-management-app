@@ -52,9 +52,9 @@ function Login() {
     return (
         <>
             <Container>
-                <Row className='d-flex justify-content-center login'>
+                <Row className='d-flex justify-content-center login '>
                     <Col md={5}>
-                        <Card className='shadow'>
+                        <Card className='shadow bg-light'>
                             <Card.Body className='px-5'>
                                 <h2>Login</h2>
                                 <Form onSubmit={handelLogin}>
