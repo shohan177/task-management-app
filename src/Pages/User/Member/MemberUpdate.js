@@ -22,8 +22,8 @@ function MemberUpdate() {
         dispatch(inputMember(state))
     }, [])
 
-    //handel update member
-    const handelUpdate = (e) => {
+    //handle update member
+    const handleUpdate = (e) => {
         e.preventDefault()
         if (data.email !== "" && data.name !== "") {
             dispatch(inputMember({ ...data, error: "" }))
@@ -44,7 +44,7 @@ function MemberUpdate() {
             <Col md={5}>
 
                 <h2>Member Update</h2>
-                <Form onSubmit={handelUpdate}>
+                <Form onSubmit={handleUpdate}>
                     <Form.Group>
                         <Form.Label>Email</Form.Label>
                         <Form.Control name='email' value={data.email} onChange={(e) => dispatch(inputMember({ ...data, email: e.target.value }))} />

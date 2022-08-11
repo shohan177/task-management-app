@@ -4,7 +4,7 @@ import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import urlString from '../../constant/urlString';
-import { inputLogin, loginIfo } from '../../redux/action/authAction';
+import { inputLogin, loginInfo } from '../../redux/action/authAction';
 import './Auth.css';
 
 function Login() {
@@ -20,13 +20,13 @@ function Login() {
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
 
         if (userInfo) {
-            dispatch(loginIfo(userInfo))
+            dispatch(loginInfo(userInfo))
             navigate(urlString.DASHBORD)
         }
     }, [])
 
 
-    const handelLogin = (e) => {
+    const handleLogin = (e) => {
 
         e.preventDefault()
         axios.get(`http://localhost:5050/user?email=${inputFields.email}&password=${inputFields.password}`).then(res => {
@@ -38,12 +38,12 @@ function Login() {
                     loginStaus: true
                 }
                 localStorage.setItem('userInfo', JSON.stringify(userInfodata));
-                dispatch(loginIfo(userInfodata))
+                dispatch(loginInfo(userInfodata))
                 navigate(urlString.DASHBORD)
             }
 
         }).catch(err => {
-            dispatch(loginIfo({ ...userInfo, error: "Credentials not match" }))
+            dispatch(loginInfo({ ...userInfo, error: "Credentials not match" }))
             console.log(err);
         });
 
@@ -57,7 +57,7 @@ function Login() {
                         <Card className='shadow bg-light'>
                             <Card.Body className='px-5'>
                                 <h2>Login</h2>
-                                <Form onSubmit={handelLogin}>
+                                <Form onSubmit={handleLogin}>
                                     <Form.Group>
                                         <Form.Label>Email</Form.Label>
                                         <Form.Control name='email' onChange={(e) => dispatch(inputLogin({ ...inputFields, email: e.target.value }))} />

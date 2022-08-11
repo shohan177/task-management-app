@@ -8,7 +8,7 @@ function TaskDetails() {
     const { state } = useLocation();
 
     //edit task
-    const handelTaskEdit = (data) => {
+    const handleTaskEdit = (data) => {
         navigate(urlString.TASKUPDATE, {
             state: data
         })
@@ -23,7 +23,7 @@ function TaskDetails() {
                 <Col md={4} style={{ textAlign: 'end' }}>
                     <ButtonGroup className='shadow'>
                         <Button variant="warning" size='sm' onClick={() => navigate(urlString.TASK)}>Back</Button>
-                        <Button variant="info" size='sm' onClick={() => handelTaskEdit(state)}>Update</Button>
+                        <Button variant="info" size='sm' onClick={() => handleTaskEdit(state)}>Update</Button>
                     </ButtonGroup>
 
 
