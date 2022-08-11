@@ -1,17 +1,17 @@
-import React from 'react'
-import { Col, Container, Dropdown, DropdownButton, Row } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link, NavLink } from 'react-router-dom'
-import urlString from '../../constant/urlString'
-import { logOutUser } from '../../redux/action/authAction'
-import './Hader.css'
+import React from 'react';
+import { Col, Container, Dropdown, DropdownButton, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
+import urlString from '../../constant/urlString';
+import { logOutUser } from '../../redux/action/authAction';
+import './Header.css';
 
-const Hader = () => {
+const Header = () => {
     let { userInfo } = useSelector(state => state.authData)
     const dispatch = useDispatch()
 
     //logout 
-    const handelLogout = () => {
+    const handleLogout = () => {
         dispatch(logOutUser({
             userName: "",
             loginStaus: false
@@ -45,7 +45,7 @@ const Hader = () => {
                                 title={userInfo.userName}
                                 id="input-group-dropdown-1"
                             >
-                                <Dropdown.Item onClick={handelLogout}>Log Out</Dropdown.Item>
+                                <Dropdown.Item onClick={handleLogout}>Log Out</Dropdown.Item>
                             </DropdownButton>
                         </Col>
                     </Row>
@@ -57,4 +57,4 @@ const Hader = () => {
     )
 }
 
-export default Hader
+export default Header

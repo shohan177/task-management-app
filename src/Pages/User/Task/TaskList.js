@@ -20,7 +20,7 @@ function Task() {
 
 
     //delete task
-    const handelDelete = (id) => {
+    const handleDelete = (id) => {
         swal({
             title: "Are you sure?",
             text: "you want to delete this",
@@ -40,7 +40,7 @@ function Task() {
     }
 
     //edit task
-    const handelTaskEdit = (data) => {
+    const handleTaskEdit = (data) => {
         navigate(urlString.TASKUPDATE, {
             state: data
         })
@@ -53,7 +53,7 @@ function Task() {
         })
     }
 
-    const handelTaskDetails = (data) => {
+    const handleTaskDetails = (data) => {
         navigate(urlString.TASKDETAILS, {
             state: data
         })
@@ -73,7 +73,7 @@ function Task() {
             </div>
             <Row>
                 {tasks && tasks.map((data, index) =>
-                    <TaskCard data={data} handelDelete={handelDelete} handelEdit={handelTaskEdit} handelTaskDetails={handelTaskDetails} key={index} />
+                    <TaskCard data={data} handleDelete={handleDelete} handleEdit={handleTaskEdit} handleTaskDetails={handleTaskDetails} key={index} />
                 )}
             </Row>
 

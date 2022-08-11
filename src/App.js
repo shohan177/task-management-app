@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import {
-  Dashbord, Footer, Hader, MemberCreate, MemberIndex,
-  MemberList, MemberUpdate, PriveRoutstHandaler, TaskCreate, TaskIndex,
+  Dashbord, Footer, Header, MemberCreate, MemberIndex,
+  MemberList, MemberUpdate, PrivateRoutetHandler, TaskCreate, TaskIndex,
   TaskList, TaskUpdate
 } from './constant/pageContainer';
 import urlString from "./constant/urlString";
@@ -18,12 +18,12 @@ function App() {
 
   return (
     <>
-      {loginStaus && <Hader />}
+      {loginStaus && <Header />}
       <Routes>
         <Route path={urlString.LOGIN} element={<Login />} />
 
-        {/* privet route start */}
-        <Route path="/" element={<PriveRoutstHandaler />}>
+        {/* private route start */}
+        <Route path="/" element={<PrivateRoutetHandler />}>
           <Route path={urlString.DASHBORD} element={<Dashbord />} />
 
           <Route path={urlString.TASK} element={<TaskIndex />}>
@@ -39,7 +39,7 @@ function App() {
             <Route path={urlString.MEMEBERUPDATE} element={<MemberUpdate />} />
           </Route>
         </Route>
-        {/* privet route end */}
+        {/* private route end */}
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
       {loginStaus && <Footer />}

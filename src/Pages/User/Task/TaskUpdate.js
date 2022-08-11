@@ -25,7 +25,7 @@ function TaskUpdate() {
     }, [])
 
     //update submit
-    const handelSubmitUpdate = (e) => {
+    const handleSubmitUpdate = (e) => {
         e.preventDefault()
         if (data.title !== "" && data.discription !== "" && data.assign !== "") {
             dispatch(inputTask({ ...data, error: "" }))
@@ -52,7 +52,7 @@ function TaskUpdate() {
             <Col md={5}>
 
                 <h2>Task Update</h2>
-                <Form onSubmit={handelSubmitUpdate}>
+                <Form onSubmit={handleSubmitUpdate}>
 
                     <Form.Group className='mt-3'>
                         <Form.Label>Title</Form.Label>

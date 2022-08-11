@@ -22,7 +22,7 @@ function MemberList() {
     }, [])
 
     //delete member
-    const handelDelete = (id) => {
+    const handleDelete = (id) => {
 
         swal({
             title: "Are you sure?",
@@ -43,7 +43,7 @@ function MemberList() {
     }
 
     //redirect edit
-    const handelEdit = (data) => {
+    const handleEdit = (data) => {
         navigate(urlString.MEMEBERUPDATE, {
             state: data
         })
@@ -66,7 +66,7 @@ function MemberList() {
             <Row>
                 {members && members.map((data, index) =>
 
-                    <MemberCard key={index} data={data} handelDelete={handelDelete} handelEdit={handelEdit} />
+                    <MemberCard key={index} data={data} handleDelete={handleDelete} handleEdit={handleEdit} />
                 )}
             </Row>
 

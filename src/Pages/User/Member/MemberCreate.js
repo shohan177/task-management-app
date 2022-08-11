@@ -16,7 +16,7 @@ function MemberCreate() {
 
     console.log(data)
     //create member
-    const handelSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         if (data?.email !== "" && data?.name !== "" && data) {
             dispatch(inputMember({ ...data, error: "" }))
@@ -37,7 +37,7 @@ function MemberCreate() {
                 <Col md={5}>
 
                     <h2>Create Member</h2>
-                    <Form onSubmit={handelSubmit}>
+                    <Form onSubmit={handleSubmit}>
                         <Form.Group>
                             <Form.Label>Email </Form.Label>
                             <Form.Control name='email' onChange={(e) => dispatch(inputMember({ ...data, email: e.target.value }))} />

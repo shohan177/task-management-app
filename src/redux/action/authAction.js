@@ -8,7 +8,7 @@ export const inputLogin = (value) => {
 }
 
 
-export const loginIfo = (value) => {
+export const loginInfo = (value) => {
     return {
         type: authAction.AUTH_LOGIN,
         payload: value

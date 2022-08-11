@@ -24,7 +24,7 @@ function TaskCreate() {
     }, [])
 
     //submit task 
-    const handelSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         if (data.title !== "" && data.discription !== "" && data.assign !== "") {
             dispatch(inputTask({ ...data, error: "" }))
@@ -49,7 +49,7 @@ function TaskCreate() {
             <Col md={5}>
 
                 <h2>Create Task</h2>
-                <Form onSubmit={handelSubmit}>
+                <Form onSubmit={handleSubmit}>
 
                     <Form.Group className='mt-3'>
                         <Form.Label>Title</Form.Label>

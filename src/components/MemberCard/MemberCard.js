@@ -1,9 +1,9 @@
-import React from 'react'
-import { Button, ButtonGroup, Col } from 'react-bootstrap'
-import './MemberCard.css'
+import React from 'react';
+import { Button, ButtonGroup, Col } from 'react-bootstrap';
+import './MemberCard.css';
 
 
-function MemberCard({ data, handelDelete, handelEdit }) {
+function MemberCard({ data, handleDelete, handleEdit }) {
     return (
         <>
             <Col md={4}>
@@ -22,8 +22,8 @@ function MemberCard({ data, handelDelete, handelEdit }) {
                         </tr>
                         <ButtonGroup>
 
-                            <Button variant="outline-info" size='sm' onClick={() => handelEdit(data)}>Update</Button>
-                            <Button variant="outline-danger" size='sm' onClick={() => handelDelete(data?.id)}>Delete</Button>
+                            <Button variant="outline-info" size='sm' onClick={() => handleEdit(data)}>Update</Button>
+                            <Button variant="outline-danger" size='sm' onClick={() => handleDelete(data?.id)}>Delete</Button>
                         </ButtonGroup>
                     </div>
 
